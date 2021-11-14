@@ -50,5 +50,5 @@ Route::group(['prefix' => 'address'], function()
     Route::get('/showByCustomer', [AddressController::class, 'showByCustomer']);
     Route::post('', [AddressController::class, 'store']);
     Route::put('/{id}', [AddressController::class, 'update']);
-    Route::delete('/{id}', [AddressController::class, 'destroy']);
+    Route::delete('', [AddressController::class, 'destroy']);
 });

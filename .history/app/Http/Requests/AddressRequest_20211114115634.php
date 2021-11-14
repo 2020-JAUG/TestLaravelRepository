@@ -30,7 +30,7 @@ class AddressRequest extends FormRequest
             'block' => 'nullable|string|max:255',
             'number' => request()->isMethod('post') ? 'required' : 'nullable' . '|string|max:255',
             'bis' => 'nullable|string|max:255',
-            'stairs' => 'nullable|string|max:255',
+            'stair' => 'nullable|string|max:255',
             'floor' => 'nullable|string|max:255',
             'door' => 'nullable|string|max:255',
             'postal_code' => request()->isMethod('post') ? 'required' : 'nullable' . '|string|max:255',

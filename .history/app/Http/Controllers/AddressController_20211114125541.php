@@ -76,8 +76,7 @@ class AddressController extends Controller
 
     public function showByCountry(AddressRequest $request)
     {
-        $countryParam = strtolower($request->input('country'));
-        $addresses = $this->repository->showByCountry($countryParam);
+        $addresses = $this->repository->showByCountry($request->input('country'));
         if(!$addresses)
         {
             return response(self::ADDRESS_NOT_FOUND_MESSAGE, 400);
@@ -107,9 +106,9 @@ class AddressController extends Controller
 
     public function showByCustomer(AddressRequest $request)
     {
-        try{
-            $address = $this->repository->showByCustomer($request->input('customer'));
-        }catch(Exception $ex) {
+        $address = $this->repository->showByCustomer($request->input('customer'));
+        if(!$address)
+        {
             return response(self::ADDRESS_NOT_FOUND_MESSAGE, 400);
         }
         return response($address, 200);

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Address;
 use App\Http\Requests\AddressRequest;
 use App\Interfaces\AddressRepositoryInterface;
-use Exception;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
@@ -66,9 +65,9 @@ class AddressController extends Controller
      */
     public function show(int $id)
     {
-        try{
-            $address = $this->repository->show($id);
-        }catch(Exception $ex){
+        $address = $this->repository->show($id);
+        if(!$address)
+        {
             return response(self::ADDRESS_NOT_FOUND_MESSAGE, 400);
         }
         return response($address, 200);
@@ -76,8 +75,7 @@ class AddressController extends Controller
 
     public function showByCountry(AddressRequest $request)
     {
-        $countryParam = strtolower($request->input('country'));
-        $addresses = $this->repository->showByCountry($countryParam);
+        $addresses = $this->repository->showByCountry($request->input('country'));
         if(!$addresses)
         {
             return response(self::ADDRESS_NOT_FOUND_MESSAGE, 400);
@@ -107,9 +105,9 @@ class AddressController extends Controller
 
     public function showByCustomer(AddressRequest $request)
     {
-        try{
-            $address = $this->repository->showByCustomer($request->input('customer'));
-        }catch(Exception $ex) {
+        $address = $this->repository->showByCustomer($request->input('customer'));
+        if(!$address)
+        {
             return response(self::ADDRESS_NOT_FOUND_MESSAGE, 400);
         }
         return response($address, 200);

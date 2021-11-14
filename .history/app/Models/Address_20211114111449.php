@@ -19,13 +19,12 @@ class Address extends Model
         'block',
         'number',
         'bis',
-        'stairs',
+        'stair',
         'floor',
         'door',
         'postal_code',
         'locality',
         'province',
-        'customer_id',
         'country'
     ];
 
@@ -36,7 +35,7 @@ class Address extends Model
         'block' => '',
         'number' => '',
         'bis' => '',
-        'stairs' => '',
+        'stair' => '',
         'floor' => '',
         'door' => '',
         'postal_code' => '',
