@@ -21,7 +21,7 @@ class CustomerFactory extends Factory
             'genre' => $this->faker->numberBetween(0, 1),
             'phone' => $this->faker->phoneNumber(),
             'status' => $this->faker->numberBetween(0, 1),
-            'user_id' => $this->faker->numberBetween(1, 50)
+            'user_id' => $this->faker->random_int(1)
         ];
     }
 }

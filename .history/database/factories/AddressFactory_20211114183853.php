@@ -17,12 +17,12 @@ class AddressFactory extends Factory
             'label' => '?',
             'type' => $this->faker->randomElement(['street', 'square']),
             'road' => $this->faker->streetName(),
-            'number' => $this->faker->numberBetween(1, 300),
+            'number' => $this->faker->random_int(1, 300),
             'postal_code' => $this->faker->postcode(),
             'locality' => $this->faker->city(),
             'province' => $this->faker->text(10),
             'country' => $this->faker->country(),
-            'customer_id' => $this->faker->numberBetween(1, 50)
+            'customer_id' => $this->faker->random_int(1, 50)
         ];
     }
 }
