@@ -7,6 +7,7 @@ use App\Http\Requests\AddressRequest;
 use App\Interfaces\AddressRepositoryInterface;
 use App\Traits\ResponseApi;
 use Exception;
+use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {

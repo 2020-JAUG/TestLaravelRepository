@@ -7,6 +7,7 @@ use App\Http\Requests\AddressRequest;
 use App\Interfaces\AddressRepositoryInterface;
 use App\Traits\ResponseApi;
 use Exception;
+use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
@@ -185,6 +186,6 @@ class AddressController extends Controller
         }catch(Exception $ex) {
             return $this->error($ex->getMessage());
         }
-        return $this->success(self::ADDRESS_DELETED_MESSAGE, [], 200);
+        return $this->success(self::ADDRESS_DELETED_MESSAGE, null, 200);
     }
 }
