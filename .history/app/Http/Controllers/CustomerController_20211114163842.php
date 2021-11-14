@@ -78,8 +78,7 @@ class CustomerController extends Controller
     /**
      * Display the specified resource
      *
-     * @param \App\Http\Requests\CustomerRequest $request
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\CustomerRequest
      */
     public function showByName(CustomerRequest $request)
     {
@@ -91,12 +90,6 @@ class CustomerController extends Controller
         return response($customer, 200);
     }
 
-    /**
-     * Display the specified resource
-     *
-     * @param int $userId
-     * @return \Illuminate\Http\Response
-     */
     public function showByUser(int $userId)
     {
         try{
@@ -121,17 +114,17 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\CustomerRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
     public function update(CustomerRequest $request, int $id)
     {
-        try{
-            $customerUpdated = new Customer($request->all());
-            $customerUpdated = $this->repository->update($id, $customerUpdated);
-        }catch(Exception $ex){
-            return response($ex->getMessage(), 500);
+        $customerUpdated = new Customer($request->all());
+        $customerUpdated = $this->repository->update($id, $customerUpdated);
+        if(!$customerUpdated)
+        {
+            return response(self::INTERNAL_ERROR_MESSAGE, 500);
         }
         return response($customerUpdated, 200);
     }
@@ -139,16 +132,12 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
     public function destroy(int $id)
     {
-        try{
-            $this->repository->delete($id);
-        }catch(Exception $ex){
-            return response($ex->getMessage(), 500);
-        }
+        $this->repository->delete($id);
         return response(self::CUSTOMER_DELETED_MESSAGE, 200);
     }
 }
