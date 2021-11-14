@@ -43,7 +43,7 @@ Route::group(['prefix' => 'customer'], function()
 Route::group(['prefix' => 'address'], function()
 {
     Route::get('', [AddressController::class, 'index']);
-    Route::get('/show/{id}', [AddressController::class, 'show']);
+    Route::get('/{id}', [AddressController::class, 'show']);
     Route::get('/showByCountry', [AddressController::class, 'showByCountry']);
     Route::get('/showByProvince', [AddressController::class, 'showByProvince']);
     Route::get('/showByLocality', [AddressController::class, 'showByLocality']);
