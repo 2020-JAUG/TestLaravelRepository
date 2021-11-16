@@ -16,9 +16,6 @@ final class CustomerRepositoryImpl extends BaseRepository implements CustomerRep
     /** @var array $with */
     protected array $with = [ 'user' ];
 
-    /** @var string $notFoundException */
-    protected string $notFoundException = CustomerNotFoundException::class;
-
     /**
      * Get Customer by name attribute
      *

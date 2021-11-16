@@ -5,8 +5,11 @@ namespace App\Repositories;
 use App\Exceptions\Address\AddressNotFoundException;
 use App\Models\Address;
 use App\Interfaces\AddressRepositoryInterface;
+use App\Models\Customer;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 final class AddressRepositoryImpl extends BaseRepository implements AddressRepositoryInterface
 {
@@ -21,9 +24,6 @@ final class AddressRepositoryImpl extends BaseRepository implements AddressRepos
 
     /** @var array $append */
     protected array $append = ['customer.user'];
-
-    /** @var string $notFoundException */
-    protected string $notFoundException = AddressNotFoundException::class;
 
     /**
      * Get Address by country

@@ -30,14 +30,17 @@ abstract class BaseRepository implements BaseRepositoryInterface
     protected string $notFoundMessage;
 
     /** @var string $storeRequest */
-    public string $storeRequest;
+    protected string $storeRequest;
 
     /** @var string $updateRequest */
-    public string $updateRequest;
+    protected string $updateRequest;
 
     public function __construct()
     {
-        $this->notFoundMessage = $this->getModelName() . ' not found in the DB';
+        $this->notFoundException = $this->model . 'NotFoundException'::class;
+        $this->notFoundMessage = $this->model . ' not found in the DB';
+        $this->storeRequest = 'Store' . $this->model . 'Request'::class;
+        $this->updateRequest = 'Request' . $this->model . 'Request'::class;
     }
 
     /**
@@ -210,11 +213,5 @@ abstract class BaseRepository implements BaseRepositoryInterface
         } else {
             $model->append($key);
         }
-    }
-
-    private function getModelName():string
-    {
-        $model_split_class = explode('\\', $this->model);
-        return end($model_split_class);
     }
 }

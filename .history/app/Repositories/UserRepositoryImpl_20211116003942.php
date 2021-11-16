@@ -13,11 +13,10 @@ final class UserRepositoryImpl extends BaseRepository implements UserRepositoryI
     /** @var string $model */
     protected string $model = User::class;
 
-    /** @var string $notFoundException */
-    protected string $notFoundException = UserNotFoundException::class;
+    // /** @var string $notFoundException */
+    // protected string $notFoundException = UserNotFoundException::class;
 
-    /** @var string $notFoundMessage */
-    protected string $notFoundMessage = "User not found in DB";
+    // protected string $notFoundMessage = "User not found in DB";
 
     /**
      * Busca un user en la db por nombre. Si no lo encuentra lanzará una excepción
