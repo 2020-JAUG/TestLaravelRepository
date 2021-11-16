@@ -15,19 +15,19 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         //Add UserRepository
         $this->app->bind(
-            'App\Interfaces\UserRepositoryInterface',
+            'App\Repositories\Interfaces\UserRepositoryInterface',
             'App\Repositories\UserRepositoryImpl'
         );
 
         //Add CustomerRepository
         $this->app->bind(
-            'App\Interfaces\CustomerRepositoryInterface',
+            'App\Repositories\Interfaces\CustomerRepositoryInterface',
             'App\Repositories\CustomerRepositoryImpl'
         );
 
         //Add AddressRepository
         $this->app->bind(
-            'App\Interfaces\AddressRepositoryInterface',
+            'App\Repositories\Interfaces\AddressRepositoryInterface',
             'App\Repositories\AddressRepositoryImpl'
         );
     }

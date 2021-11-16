@@ -1,9 +1,9 @@
 <?php
 
+use App\Helpers\RoutesHelper;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,34 +21,17 @@ use Illuminate\Support\Facades\Route;
     // return $request->user();
 // });
 
-Route::get('/user', [UserController::class, 'index']);
-Route::get('/user/{id}', [UserController::class, 'show']);
-Route::get('/find/user/name', [UserController::class, 'showByName']);
-Route::get('/find/user/email', [UserController::class, 'showByEmail']);
-Route::post('/user', [UserController::class, 'store']);
-Route::put('/user/{id}', [UserController::class, 'update']);
-Route::delete('/user/{id}', [UserController::class, 'destroy']);
-
-Route::group(['prefix' => 'customer'], function()
+Route::group(['prefix' => 'user'],function(Router $router)
 {
-    Route::get('', [CustomerController::class, 'index']);
-    Route::get('/{id}', [CustomerController::class, 'show']);
-    Route::post('/findByName', [CustomerController::class, 'showByName']);
-    Route::get('/findByUser/{id}', [CustomerController::class, 'showByUser']);
-    Route::post('', [CustomerController::class, 'store']);
-    Route::put('/{id}', [CustomerController::class, 'update']);
-    Route::delete('/{id}', [CustomerController::class, 'destroy']);
+    RoutesHelper::registerApiRoutes($router, 'App\Http\Controllers\UserController');
 });
 
-Route::group(['prefix' => 'address'], function()
+Route::group(['prefix' => 'customer'], function(Router $router)
 {
-    Route::get('', [AddressController::class, 'index']);
-    Route::get('/show/{id}', [AddressController::class, 'show']);
-    Route::get('/showByCountry', [AddressController::class, 'showByCountry']);
-    Route::get('/showByProvince', [AddressController::class, 'showByProvince']);
-    Route::get('/showByLocality', [AddressController::class, 'showByLocality']);
-    Route::get('/showByCustomer', [AddressController::class, 'showByCustomer']);
-    Route::post('', [AddressController::class, 'store']);
-    Route::put('/{id}', [AddressController::class, 'update']);
-    Route::delete('/{id}', [AddressController::class, 'destroy']);
+    RoutesHelper::registerApiRoutes($router, 'App\Http\Controllers\CustomerController');
+});
+
+Route::group(['prefix' => 'address'], function(Router $router)
+{
+    RoutesHelper::registerApiRoutes($router, 'App\Http\Controllers\AddressController');
 });

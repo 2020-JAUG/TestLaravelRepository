@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 use App\Exceptions\User\UserNotFoundException;
-use App\Interfaces\UserRepositoryInterface;
 use App\Models\User;
 use App\Repositories\BaseRepository;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Exception;
 
 final class UserRepositoryImpl extends BaseRepository implements UserRepositoryInterface

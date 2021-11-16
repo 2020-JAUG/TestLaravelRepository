@@ -16,7 +16,7 @@ trait ResponseApi
      *
      * @return \Illuminate\Http\Response
      */
-    public function coreResponse(string $message, array|object $data = null, int $statusCode, bool $isSuccess = true)
+    public function coreResponse(string $message,  $data = null, int $statusCode, bool $isSuccess = true)
     {
         //Send the response if it is successful
         if($isSuccess)
@@ -46,7 +46,7 @@ trait ResponseApi
      *
      * @return \Illuminate\Http\Response
      */
-    public function success(string $message, array|object $data, int $statusCode)
+    public function success(string $message,  $data, int $statusCode)
     {
         return $this->coreResponse($message, $data, $statusCode);
     }

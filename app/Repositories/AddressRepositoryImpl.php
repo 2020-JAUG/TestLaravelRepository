@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Exceptions\Address\AddressNotFoundException;
 use App\Models\Address;
-use App\Interfaces\AddressRepositoryInterface;
+use App\Repositories\Interfaces\AddressRepositoryInterface;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 

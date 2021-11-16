@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Customer\StoreCustomerRequest;
 use App\Http\Requests\Customer\UpdateCustomerRequest;
 use App\Http\Requests\CustomerRequest;
-use App\Interfaces\CustomerRepositoryInterface;
 use App\Models\Customer;
+use App\Repositories\Interfaces\CustomerRepositoryInterface;
 use App\Traits\ResponseApi;
 use Exception;
 

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Address\StoreAddressRequest;
 use App\Http\Requests\Address\UpdateAddressRequest;
-use App\Models\Address;
 use App\Http\Requests\AddressRequest;
-use App\Interfaces\AddressRepositoryInterface;
+use App\Repositories\Interfaces\AddressRepositoryInterface;
 use App\Traits\ResponseApi;
 use Exception;
 

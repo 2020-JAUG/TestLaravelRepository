@@ -3,8 +3,8 @@
 namespace App\Repositories;
 
 use App\Exceptions\Customer\CustomerNotFoundException;
-use App\Interfaces\CustomerRepositoryInterface;
 use App\Models\Customer;
+use App\Repositories\Interfaces\CustomerRepositoryInterface;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
 

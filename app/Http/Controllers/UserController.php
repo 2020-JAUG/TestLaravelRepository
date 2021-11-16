@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\UserRequest;
-use App\Interfaces\UserRepositoryInterface;
-use App\Models\User;
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Traits\ResponseApi;
 use Exception;
 
