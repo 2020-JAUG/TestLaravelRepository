@@ -59,6 +59,11 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->getKey();
     }
+
+    public static function find_by_email($email)
+    {
+        return User::where('email', $email)->firstOrFail();
+    }
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
      *

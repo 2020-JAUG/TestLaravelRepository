@@ -34,7 +34,8 @@
             "app/Repositories/interfaces/UserRepositoryInterface.php",
             "app/Repositories/interfaces/BaseRepositoryInterface.php",
             "app/Repositories/interfaces/CustomerRepositoryInterface.php",
-            "app/Repositories/interfaces/AddressRepositoryInterface.php"
+            "app/Repositories/interfaces/AddressRepositoryInterface.php",
+            "app/Repositories/interfaces/AuthRepositoryInterface.php"
         ]
     },
     "autoload-dev": {
